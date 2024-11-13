@@ -64,8 +64,7 @@ npx wdio wdio.conf.js --capabilities.browserName=edge
 View Test Results: Test results will be displayed in the terminal. The project is configured for detailed logging to help debug any issues.
 
 Folder Structure
-bash
-Skopiuj kod
+
 ├── test/
 │   ├── pageobjects/
 │   │   └── loginPage.js          # Login page object file
@@ -88,10 +87,10 @@ Additional BDD structure using Cucumber.
 Troubleshooting
 Issue with Browsers: Ensure EdgeDriver and GeckoDriver are in your system's path.
 Dependency Errors: Reinstall dependencies by running:
-bash
-Skopiuj kod
+
 rm -rf node_modules
 npm install
+
 License
 This project is licensed under the MIT License.
 
