@@ -63,16 +63,6 @@ Run Tests on a Specific Browser: Specify the browser in wdio.conf.js or override
 npx wdio wdio.conf.js --capabilities.browserName=edge
 View Test Results: Test results will be displayed in the terminal. The project is configured for detailed logging to help debug any issues.
 
-Folder Structure
-
-├── test/
-│   ├── pageobjects/
-│   │   └── loginPage.js          # Login page object file
-│   ├── specs/
-│   │   └── login.test.js         # Test suite for login scenarios
-├── .gitignore                    # Ignores node_modules and config files
-├── README.md                     # Project documentation
-└── wdio.conf.js                  # WebDriverIO configuration
 Additional Options
 This project includes optional setup for advanced patterns and loggers:
 
