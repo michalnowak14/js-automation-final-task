@@ -1,86 +1,44 @@
-WebDriverIO Automation Project
-Overview
-This project is an automated test suite for the SauceDemo web application, using WebDriverIO to perform automated browser testing on Edge and Firefox browsers. The tests focus on verifying the login functionality with different credentials, ensuring both positive and negative test scenarios. The project employs Page Object Model (POM) for organized, maintainable code, and runs tests in parallel across supported browsers.
+Project Overview
+This repository contains a JavaScript-based automation testing framework designed for UI testing of web applications. The project utilizes WebdriverIO with Cucumber and Chai assertion libraries to write and execute behavior-driven development (BDD) style tests.
 
-Project Structure
-test/pageobjects: Contains page object classes for different pages on the website.
-test/specs: Contains test specification files for the defined test cases.
-wdio.conf.js: WebDriverIO configuration file, set up for parallel execution, multi-browser testing, and log generation.
-README.md: Project documentation.
-Technologies
-Test Automation Tool: WebDriverIO
-Browsers: Edge and Firefox
-Assertions: Chai Assertion Library
-Locators: XPath
-Patterns: Page Object Model (POM)
-Parallel Execution: Configured in wdio.conf.js
-Logging: Integrated with WebDriverIO logger
-Test Cases
-The project covers the following scenarios for the login form on SauceDemo:
+Features
+WebdriverIO for browser automation.
+Cucumber for BDD-based testing with feature files.
+Chai for assertions and validation.
+Pre-configured test scripts for the Sauce Demo login page.
 
-UC-1: Login with Empty Credentials
-Open the login page.
-Enter any values in the "Username" and "Password" fields.
-Clear the fields and click the "Login" button.
-Verify that an error message appears: "Username is required".
-UC-2: Login with Missing Password
-Open the login page.
-Enter a valid username in the "Username" field, leave the "Password" field empty.
-Click the "Login" button.
-Verify that an error message appears: "Password is required".
-UC-3: Successful Login with Valid Credentials
-Open the login page.
-Enter a valid username and password as specified in the Accepted Username section.
-Click the "Login" button.
-Verify that the title on the dashboard is "Swag Labs".
-Setup and Installation
+Installation
 Clone the Repository:
 
-git clone <repository-url>
-cd final-task
-Install Dependencies: Run the following command to install necessary packages:
+git clone https://github.com/michalnowak14/js-automation-final-task.git
+Navigate to the Project Directory:
 
+cd js-automation-final-task
+Install Dependencies:
 
 npm install
-GeckoDriver Setup:
 
-Firefox browser requires Geckodriver. Download and place it in your system path, or install it using npm:
-
-npm install geckodriver --save-dev
-EdgeDriver Setup:
-
-Edge browser requires MSEdgeDriver. You can download it manually or use:
-
-npm install msedgedriver --save-dev
 Running Tests
-Run All Tests: Execute tests on all browsers in parallel with:
+Command to Execute Tests: Run the test suite with:
 
+npm run wdio
 
-npx wdio wdio.conf.js
-Run Tests on a Specific Browser: Specify the browser in wdio.conf.js or override it in the command:
+What If npm run wdio Doesn't Work?
 
+Verify that the wdio script is defined in the package.json file:
 
-npx wdio wdio.conf.js --capabilities.browserName=edge
-View Test Results: Test results will be displayed in the terminal. The project is configured for detailed logging to help debug any issues.
+"scripts": {
+  "wdio": "wdio run wdio.conf.js"
+}
+If missing, add it, or use the direct command:
 
-Additional Options
-This project includes optional setup for advanced patterns and loggers:
+npx wdio run wdio.conf.js
+Test Reports: Test execution generates detailed output in the terminal.
 
-Pattern (Page Object Model): Promotes code reusability and readability by encapsulating page-specific actions.
-Logger: WebDriverIO's built-in logger records details during test execution to help debug issues.
-Improvements and Future Scope
-The project can be expanded by adding:
+Writing New Tests
+Feature Files: Define scenarios in the ./features directory using Gherkin syntax.
+Step Definitions: Implement corresponding step definitions in ./features/step-definitions.
 
-Additional test cases for the rest of the application.
-Enhanced logging with custom log levels.
-Additional BDD structure using Cucumber.
-Troubleshooting
-Issue with Browsers: Ensure EdgeDriver and GeckoDriver are in your system's path.
-Dependency Errors: Reinstall dependencies by running:
-
-rm -rf node_modules
-npm install
-
-License
-This project is licensed under the MIT License.
-
+Pre-Requisites
+Node.js: Version 16.x or higher.
+Browser Drivers: Installed and available in PATH for Chrome or Edge (e.g., using ChromeDriver or EdgeDriver).
